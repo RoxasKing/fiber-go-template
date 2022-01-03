@@ -5,6 +5,9 @@ LABEL maintainer="Vic Shóstak <vic@shostak.dev> (https://shostak.dev/)"
 # Move to working directory (/build).
 WORKDIR /build
 
+ENV GOPROXY=https://goproxy.io,direct 
+ENV GOPRIVATE=git.mycompany.com,github.com/my/private
+
 # Copy and download dependency using go mod.
 COPY go.mod go.sum ./
 RUN go mod download
